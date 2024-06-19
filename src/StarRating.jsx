@@ -35,10 +35,10 @@ export default function StarRating({
   function handleRating(newRating) {
     if (newRating == rating) {
       setRating(minRating - 1);
-      onSetRating(minRating - 1);
+      onSetRating(rating);
     } else {
       setRating(newRating);
-      onSetRating(minRating - 1);
+      onSetRating(rating);
     }
   }
 
