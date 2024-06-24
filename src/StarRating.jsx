@@ -22,23 +22,23 @@ StarRating.propTypes = {
 };
 
 export default function StarRating({
-  minRating = 1,
   maxRating = 5,
   color = "#fcc419",
   size = 3,
   className = "",
   onSetRating,
 }) {
-  const [rating, setRating] = useState(minRating - 1);
-  const [hoveredRating, setHoveredRating] = useState(minRating - 1);
+  const [rating, setRating] = useState(0);
+  const [hoveredRating, setHoveredRating] = useState(0);
 
   function handleRating(newRating) {
+    console.log(newRating);
     if (newRating == rating) {
-      setRating(minRating - 1);
-      onSetRating(rating);
+      setRating(0);
+      onSetRating(0);
     } else {
       setRating(newRating);
-      onSetRating(rating);
+      onSetRating(newRating);
     }
   }
 
@@ -53,7 +53,7 @@ export default function StarRating({
     <div style={containerStyle} className={className}>
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => {
-          let currentStar = minRating + i;
+          let currentStar = i + 1;
           return (
             <Star
               key={i}
