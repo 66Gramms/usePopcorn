@@ -32,7 +32,6 @@ export default function StarRating({
   const [hoveredRating, setHoveredRating] = useState(0);
 
   function handleRating(newRating) {
-    console.log(newRating);
     if (newRating == rating) {
       setRating(0);
       onSetRating(0);
